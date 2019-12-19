@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		sharedScore = ViewModelProviders.of(requireActivity()).get(SharedScore.class);
 	}
 
 	@Override
@@ -51,7 +52,26 @@ public class HomeFragment extends Fragment {
 		scoreTigaHome = view.findViewById(R.id.scoreTigaHome);
 		scoreHome = view.findViewById(R.id.scoreHome);
 		scoreSatuHome = view.findViewById(R.id.scoreSatuHome);
+		scoreDuaHome.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				sharedScore.setScoreHome(scoreDefault + 2);
+			}
+		});
 
+		scoreTigaHome.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				sharedScore.setScoreHome(scoreDefault + 3);
+			}
+		});
+
+		scoreSatuHome.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				sharedScore.setScoreHome(scoreDefault + 1);
+			}
+		});
 		// Tambahkan logic tombol di bagian bawah ini
 	}
 }
