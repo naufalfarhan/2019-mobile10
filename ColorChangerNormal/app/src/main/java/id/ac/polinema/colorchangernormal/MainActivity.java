@@ -30,5 +30,11 @@ public class MainActivity extends AppCompatActivity {
 		Random rnd = new Random();
 		return Color.argb(255,rnd.nextInt(256),rnd.nextInt(256),rnd.nextInt(256));
 	}
-
+	btnChangeColor.setOnClickListener(new View.OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			int color = generateRandomColor();
+			rootView.setBackgroundColor(color);
+		}
+	});
 }
