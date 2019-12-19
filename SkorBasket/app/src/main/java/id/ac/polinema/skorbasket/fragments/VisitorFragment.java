@@ -35,6 +35,7 @@ public class VisitorFragment extends Fragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		sharedScore = ViewModelProviders.of(requireActivity()).get(SharedScore.class);
 	}
 
 	@Override
@@ -52,7 +53,26 @@ public class VisitorFragment extends Fragment {
 		scoreVisitor = view.findViewById(R.id.scoreVisitor);
 		scoreSatuVisitor = view.findViewById(R.id.scoreSatuVisitor);
 
+		scoreDuaVisitor.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				sharedScore.setScoreVisitor(scoreDefault+2);
+			}
+		});
 
+		scoreTigaVisitor.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				sharedScore.setScoreVisitor(scoreDefault+3);
+			}
+		});
+
+		scoreSatuVisitor.setOnClickListener(new View.OnClickListener() {
+												@Override
+												public void onClick(View view) {
+													sharedScore.setScoreVisitor(scoreDefault+1);
+												}
+											}
 		// Tambahkan logic tombol di bagian bawah ini
 	}
 }
